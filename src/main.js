@@ -1,5 +1,7 @@
+import bootstrap from "bootstrap"
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-
-createApp(App).use(router).mount('#app')
+import "./assets/style.css"
+createApp(App).use(router).mount('#app');
+window.bootstrap = bootstrap
