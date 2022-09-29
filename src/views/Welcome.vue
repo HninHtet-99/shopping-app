@@ -1,12 +1,12 @@
 <template>
   
-    <div class="welcome p-5 mt-5 rounded-4">
+    <div class="welcome p-5">
       <div v-if="showLoginForm">
         <Login></Login>
         <p class="text-muted text-center "> Don't have an account? <span class="text-primary" @click="showLoginForm = !showLoginForm">Sign Up</span></p>
       </div>
       <div v-else>
-        <SignUp></SignUp>
+        <SignUp @enterShoppingRoom="enterShoppingRoom"></SignUp>
         <p class="text-muted text-center ">Already have an account! <span class="text-primary" @click="showLoginForm = !showLoginForm">Login</span></p>
       </div>
       
@@ -16,27 +16,28 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-  
-  import Login from '../components/Login'
+import Login from '../components/Login'
 import SignUp from '../components/SignUp'
+import { useRouter } from "vue-router";
+
 export default {
   components: {
     Login, SignUp },
 
     setup(){
       let showLoginForm = ref(true);
+      let router = useRouter();
 
-      return{showLoginForm}
+      let enterShoppingRoom=()=>{
+        router.push({name:'Shopping'})
+      }
+      return{showLoginForm,enterShoppingRoom}
     }
 
 }
 </script>
 
 <style>
-.welcome{
-  background-color: #fafafa;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-}
 .welcome form{
   max-width: 500px;
   margin: 10px auto;

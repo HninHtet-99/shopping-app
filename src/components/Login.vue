@@ -34,17 +34,21 @@
   
   <script>
   import { ref } from '@vue/reactivity'
-  import useLogin from '@/compasibles/useLogin';
+  import useLogin from '@/compasibles/useLogin'
+  import { useRouter } from 'vue-router';
   export default {
       setup(){
           let password = ref('');
           let email = ref('');
+          let router = useRouter();
   
           let {error,loginAccount} = useLogin();
 
           let login=async()=>{
              let res =  await loginAccount(email.value,password.value)
-             console.log(res);
+             if(res){
+                router.push({name:'Shopping'})
+             }
           }
           return{password,email,login,error}
       }

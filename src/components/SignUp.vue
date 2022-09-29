@@ -41,7 +41,7 @@ import { ref } from '@vue/reactivity'
 import useSignup from '../compasibles/useSignup'
 
 export default {
-    setup(){
+    setup(props,context){
         let firstName = ref('');
         let secondName = ref('');
         let password = ref('');
@@ -50,7 +50,10 @@ export default {
         let {error,createAccount} = useSignup();
         let signup=async()=>{
           let res = await createAccount(email.value,password.value,firstName.value,secondName.value)
-          console.log(res.user);
+          console.log(res.user)
+          if (res) {
+            context.emit('enterShoppingRoom')
+          }
         }
         return{firstName,secondName,password,email,signup}
     }

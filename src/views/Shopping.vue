@@ -1,0 +1,29 @@
+<template>
+  <div>
+    <Navbar></Navbar>
+    
+  </div>
+</template>
+
+<script>
+import { watch } from 'vue'
+import Navbar from '../components/Navbar'
+import getUser from '../compasibles/getUser'
+import { useRouter } from 'vue-router'
+export default {
+  components: { Navbar },
+  setup(){
+    let {user} = getUser();
+    let router = useRouter();
+    watch(user,()=>{
+      if (!user.value) {
+        router.push('/')
+      }
+    })
+  }
+}
+</script>
+
+<style>
+
+</style>

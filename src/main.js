@@ -2,7 +2,12 @@ import bootstrap from "bootstrap"
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import {auth} from './firebase/config'
 import "./assets/style.css"
-
-createApp(App).use(router).mount('#app');
+let app;
+auth.onAuthStateChanged(()=>{
+    if (!app) {
+        createApp(App).use(router).mount('#app');
+    }
+})
 window.bootstrap = bootstrap
