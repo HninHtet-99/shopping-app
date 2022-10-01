@@ -1,4 +1,4 @@
-import bootstrap from "bootstrap"
+import {bootstrap} from "bootstrap"
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -7,7 +7,7 @@ import "./assets/style.css"
 let app;
 auth.onAuthStateChanged(()=>{
     if (!app) {
-        createApp(App).use(router).mount('#app');
+        app = createApp(App).use(router).mount('#app');
     }
 })
-window.bootstrap = bootstrap
+window.bootstrap = require('bootstrap')

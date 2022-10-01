@@ -38,7 +38,7 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import useSignup from '../compasibles/useSignup'
+import useSignup from '../composables/useSignup'
 
 export default {
     setup(props,context){

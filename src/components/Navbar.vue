@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import useLogout from '../compasibles/useLogout'
-import getUser from '../compasibles/getUser'
+import useLogout from '../composables/useLogout'
+import getUser from '../composables/getUser'
 export default {
   setup(){
     let {user} = getUser();

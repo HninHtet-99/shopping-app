@@ -34,7 +34,7 @@
   
   <script>
   import { ref } from '@vue/reactivity'
-  import useLogin from '@/compasibles/useLogin'
+  import useLogin from '@/composables/useLogin'
   import { useRouter } from 'vue-router';
   export default {
       setup(){
