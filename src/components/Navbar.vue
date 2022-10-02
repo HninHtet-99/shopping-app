@@ -8,15 +8,12 @@
         </div>
         <div class="d-block d-md-flex align-items-center">
           <div class="">
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" v-model="selectCategory" @change="filteredCategory()">
+              <option v-for="category in categories" :key="category" :value="category" >{{category}}</option>
             </select>
           </div>
           <div class="">
-            <button class="btn btn-primary m-1">shop</button>
+            <button class="btn btn-primary m-1">shop <span class="p-1 text-bg-light text-info">6</span></button>
             <button class="btn btn-primary m-1">lists</button>
             <button class="btn btn-primary m-1" @click="logOut">logout</button>
           </div>
@@ -29,6 +26,7 @@
 <script>
 import useLogout from '../composables/useLogout'
 import getUser from '../composables/getUser'
+import { ref } from '@vue/reactivity';
 export default {
   setup(){
     let {user} = getUser();
@@ -36,9 +34,18 @@ export default {
     let logOut = async()=>{
       await userLogout();
     }
+    let categories = ref([]);
+    let getCategory =async()=>{
+     let res =  await fetch('https://fakestoreapi.com/products/categories')
+     categories.value = await res.json();
+    }
+    getCategory();
+    let selectCategory= ref('');
+    let filteredCategory = ()=>{
+      
+    }
     
-    
-    return{logOut,user}
+    return{logOut,user,categories,filteredCategory,selectCategory}
   }
 
 }
