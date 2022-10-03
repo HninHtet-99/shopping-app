@@ -21,8 +21,11 @@ export default {
         let total = ref([]);
         let des = props.product.description.substring(0,100)+'...';
         let addToCard=()=>{
-            console.log(props.product);
+            total.value = props.product;
+            console.log(total.value);
         }
+
+       
         return{des,addToCard}
     }
 }

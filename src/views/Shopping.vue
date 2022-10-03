@@ -11,6 +11,7 @@ import { watch } from 'vue'
 import Navbar from '../components/Navbar'
 import getUser from '../composables/getUser'
 import { useRouter } from 'vue-router'
+
 export default {
   components: {
     Products, Navbar },
@@ -21,7 +22,8 @@ export default {
       if (!user.value) {
         router.push('/')
       }
-    })
+    });
+    
   }
 }
 </script>

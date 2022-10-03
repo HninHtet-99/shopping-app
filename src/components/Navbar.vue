@@ -8,8 +8,10 @@
         </div>
         <div class="d-block d-md-flex align-items-center">
           <div class="">
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example" v-model="selectCategory" @change="filteredCategory()">
-              <option v-for="category in categories" :key="category" :value="category" >{{category}}</option>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" v-model="selectCategory" @change="selectedCategory(selectCategory)">
+              <option v-for="category in categories" :key="category" :value="category" >
+                {{category}}
+              </option>
             </select>
           </div>
           <div class="">
@@ -26,7 +28,9 @@
 <script>
 import useLogout from '../composables/useLogout'
 import getUser from '../composables/getUser'
-import { ref } from '@vue/reactivity';
+import getCategories from '../composables/getCategories'
+import getFilteredCategory from '../composables/getFilteredCategory'
+
 export default {
   setup(){
     let {user} = getUser();
@@ -34,18 +38,14 @@ export default {
     let logOut = async()=>{
       await userLogout();
     }
-    let categories = ref([]);
-    let getCategory =async()=>{
-     let res =  await fetch('https://fakestoreapi.com/products/categories')
-     categories.value = await res.json();
-    }
-    getCategory();
-    let selectCategory= ref('');
-    let filteredCategory = ()=>{
-      
-    }
+
+    let {categories,getCategoriesDatas} = getCategories()
+    getCategoriesDatas();
+
     
-    return{logOut,user,categories,filteredCategory,selectCategory}
+    let {selectCategory,filteredCategory,selectedCategory} = getFilteredCategory();
+    selectedCategory(selectCategory.value);
+    return{logOut,user,categories,selectCategory,selectedCategory}
   }
 
 }

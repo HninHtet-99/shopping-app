@@ -10,12 +10,11 @@ let getDatas = ()=>{
         }
         let datas = await res.json();
         products.value = datas;
-        // console.log(products.value[6].category)
+        // console.log(products.value)
        } catch (err) {
         error.value = err.message
        }
-    }
-    
+    };
     return{error,products,load}
 }
 
