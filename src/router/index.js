@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import {auth} from '../firebase/config'
 import Welcome from '../views/Welcome.vue'
 import Shopping from '../views/Shopping.vue'
+import AddToCart from '../views/AddToCart.vue'
 const routes = [
   {
     path: '/',
@@ -20,6 +21,11 @@ const routes = [
         next({name:"Welcome"})
       }
     }
+  },
+  {
+    path: '/shopping/add-to-cart',
+    name: 'AddToCart',
+    component: AddToCart
   }
 ]
 
