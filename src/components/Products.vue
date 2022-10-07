@@ -2,7 +2,8 @@
     <div>
         <h4 v-if="error" class="text-danger text-center">{{error}}</h4>
         <div class="row" v-else>
-            <ProductList :products="filteredCategory"></ProductList>
+                <ProductList v-if="selectCategory" :products="filteredCategory" ></ProductList>
+                <ProductList v-else :products="products" ></ProductList>
         </div>
     </div>
 </template>
@@ -20,7 +21,7 @@ export default {
         load();
         let {selectCategory,filteredCategory,selectedCategory} = getFilteredCategory();
        
-        return {products,error,filteredCategory}
+        return {products,error,filteredCategory,selectCategory}
     }
 }
 </script>

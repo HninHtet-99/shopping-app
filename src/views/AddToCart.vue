@@ -1,83 +1,39 @@
 <template>
   <div class="p-3">
     <h2 class="my-3">Your Shopping Cart</h2>
-    <div class="cart-list">
-        <div class="cart d-flex justify-content-around align-items-center">
-            <img src="../assets/pizza.jpg" alt="">
-            <h5>This is title</h5>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <button class="btn btn-outline-dark">+</button>
-                <span class="my-2">01</span>
-                <button class="btn btn-outline-dark">-</button>
-            </div>
-            <h6>Price: $ 500</h6>
-            <span class="delete-icon bg-danger p-2"><span class="icon text-light">x</span></span>
-        </div>
-        <div class="cart d-flex justify-content-around align-items-center">
-            <img src="../assets/pizza.jpg" alt="">
-            <h5>This is title</h5>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <button class="btn btn-outline-dark">+</button>
-                <span class="my-2">01</span>
-                <button class="btn btn-outline-dark">-</button>
-            </div>
-            <h6>Price: $ 500</h6>
-            <span class="delete-icon bg-danger p-2"><span class="icon text-light">x</span></span>
-        </div>
-        <div class="cart d-flex justify-content-around align-items-center">
-            <img src="../assets/pizza.jpg" alt="">
-            <h5>This is title</h5>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <button class="btn btn-outline-dark">+</button>
-                <span class="my-2">01</span>
-                <button class="btn btn-outline-dark">-</button>
-            </div>
-            <h6>Price: $ 500</h6>
-            <span class="delete-icon bg-danger p-2"><span class="icon text-light">x</span></span>
-        </div>
-        <div class="cart d-flex justify-content-around align-items-center">
-            <img src="../assets/pizza.jpg" alt="">
-            <h5>This is title</h5>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <button class="btn btn-outline-dark">+</button>
-                <span class="my-2">01</span>
-                <button class="btn btn-outline-dark">-</button>
-            </div>
-            <h6>Price: $ 500</h6>
-            <span class="delete-icon bg-danger p-2"><span class="icon text-light">x</span></span>
-        </div>
-        <div class="cart d-flex justify-content-around align-items-center">
-            <img src="../assets/pizza.jpg" alt="">
-            <h5>This is title</h5>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <button class="btn btn-outline-dark">+</button>
-                <span class="my-2">01</span>
-                <button class="btn btn-outline-dark">-</button>
-            </div>
-            <h6>Price: $ 500</h6>
-            <span class="delete-icon bg-danger p-2"><span class="icon text-light">x</span></span>
-        </div>
-        
+
+    <div v-if="addToCartProductList.length">
+        <CartList :carts="addToCartProductList" ></CartList>
+        <BottomNav></BottomNav>
+    </div>
+    <div class="" v-else>
+        <p class="text-danger text-center" >There's no products.</p>
+        <router-link :to="{name:'Shopping'}">Back to shop</router-link>
     </div>
     
-    <div class="bottom-nav">
-        <p class="text-primary mb-0">Back to Shop</p>
-        <h5>Total </h5>
-        <span>$ 8000</span>
-    </div>
+    
   </div>
 </template>
 
 <script>
+import BottomNav from '../components/BottomNav'
+import CartList from '../components/CartList'
+import getProductlist from '@/composables/getProductlist'
 export default {
+  components: {
+    BottomNav, CartList },
+    setup(){
+    let {addToCartProductList,showAddtocart}= getProductlist();
+    return {addToCartProductList}
 
+    }
 }
 </script>
 
 <style>
-.cart-list{
+/* .cart-list{
     overflow: scroll;
-}
+} */
 .cart{
     max-width: 700px;
     margin: 10px 30px;

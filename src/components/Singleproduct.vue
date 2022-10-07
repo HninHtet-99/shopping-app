@@ -7,7 +7,7 @@
             <p>{{product.category}}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <p class="mb-0">price <span class="text-primary">$ {{product.price}}</span></p>
-                <button class="btn btn-primary" @click="addToCard">Buy</button>
+                <button class="btn btn-primary" @click="sendAddToCart(product)">Buy</button>
             </div>
         </div>
     </div>
@@ -17,16 +17,19 @@
 import { ref } from '@vue/reactivity';
 export default {
     props:['product'],
-    setup(props){
-        let total = ref([]);
-        let des = props.product.description.substring(0,100)+'...';
-        let addToCard=()=>{
-            total.value = props.product;
-            console.log(total.value);
+    setup(props,context){
+        
+        let des = ref('');
+        
+        des.value = props.product.description.substring(0,100)+'...';
+        
+        let sendAddToCart=(p)=>{
+            context.emit('addtocart',p)
+            
         }
-
+        
        
-        return{des,addToCard}
+        return{des,sendAddToCart}
     }
 }
 </script>
