@@ -6,9 +6,9 @@ let showAddtocart = (p)=>{
     if(item){
         alert('selected item')
     }else{
-        addToCartProductList.value.push(p);
+        addToCartProductList.value.push({...p,quantity :1});
     }
-    console.log(addToCartProductList.value)
+    // console.log(addToCartProductList.value)
     } 
     
 

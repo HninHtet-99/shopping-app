@@ -9,7 +9,6 @@
         <div class="d-block d-md-flex align-items-center">
           <div class="">
             <select class="form-select form-select-sm" aria-label=".form-select-sm example" v-model="selectCategory" @change="selectedCategory(selectCategory)">
-              <option value="All" selected>All</option>
               <option v-for="category in categories" :key="category" :value="category" >
                 {{category}}
               </option>

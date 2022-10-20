@@ -3,7 +3,7 @@
     <h2 class="my-3">Your Shopping Cart</h2>
 
     <div v-if="addToCartProductList.length">
-        <CartList :carts="addToCartProductList" ></CartList>
+        <CartList :carts="addToCartProductList"></CartList>
         <BottomNav></BottomNav>
     </div>
     <div class="" v-else>

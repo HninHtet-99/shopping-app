@@ -4,7 +4,6 @@
         <div class="card-body">
             <h5 class="card-title">{{product.title}}</h5>
             <p class="card-text">{{des}}</p>
-            <p>{{product.category}}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <p class="mb-0">price <span class="text-primary">$ {{product.price}}</span></p>
                 <button class="btn btn-primary" @click="sendAddToCart(product)">Buy</button>
