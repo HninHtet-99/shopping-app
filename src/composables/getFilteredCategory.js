@@ -15,7 +15,6 @@ let getFilteredCategory = ()=>{
            return product.category == selectCategory.value
         })
         
-        // console.log(products.value);
     })
 
     return{selectCategory,filteredCategory,selectedCategory}

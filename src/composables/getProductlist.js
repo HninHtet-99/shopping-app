@@ -1,5 +1,6 @@
-import { ref } from "vue"
+import { ref } from "vue";
 
+/* show product list in add to cart */
 let addToCartProductList = ref([])
 let showAddtocart = (p)=>{
     let item = addToCartProductList.value.find( el => el.id === p.id)
@@ -8,10 +9,7 @@ let showAddtocart = (p)=>{
     }else{
         addToCartProductList.value.push({...p,quantity :1});
     }
-    // console.log(addToCartProductList.value)
     } 
-    
-
 
 let getProductlist = ()=>{
     return {addToCartProductList,showAddtocart}

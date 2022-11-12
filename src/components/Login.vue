@@ -37,21 +37,22 @@
   import useLogin from '@/composables/useLogin'
   import { useRouter } from 'vue-router';
   export default {
-      setup(){
-          let password = ref('');
-          let email = ref('');
-          let router = useRouter();
-  
-          let {error,loginAccount} = useLogin();
+    setup(){
+        let password = ref('');
+        let email = ref('');
+        let router = useRouter();
 
-          let login=async()=>{
-             let res =  await loginAccount(email.value,password.value)
-             if(res){
+        /* login */
+        let {error,loginAccount} = useLogin();
+
+        let login=async()=>{
+            let res =  await loginAccount(email.value,password.value)
+            if(res){
                 router.push({name:'Shopping'})
-             }
-          }
-          return{password,email,login,error}
-      }
+            }
+        }
+        return{password,email,login,error}
+    }
   
   }
   </script>

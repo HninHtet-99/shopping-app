@@ -46,7 +46,7 @@ export default {
         let secondName = ref('');
         let password = ref('');
         let email = ref('');
-        
+        /* sign up */
         let {error,createAccount} = useSignup();
         let signup=async()=>{
           let res = await createAccount(email.value,password.value,firstName.value,secondName.value)

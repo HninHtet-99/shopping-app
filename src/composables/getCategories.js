@@ -1,4 +1,5 @@
 import { ref } from "vue";
+/* get product categories */
 let getCategories = ()=>{
     let categories = ref([]);
     let getCategoriesDatas =async()=>{

@@ -16,9 +16,10 @@ import getFilteredCategory from '../composables/getFilteredCategory'
 export default {
   components: { ProductList },
     setup(){
+        /* get products */
         let {error,products,load} = getDatas();
-
         load();
+        /* show filtered products */
         let {selectCategory,filteredCategory,selectedCategory} = getFilteredCategory();
        
         return {products,error,filteredCategory,selectCategory}

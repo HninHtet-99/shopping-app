@@ -11,11 +11,12 @@ import getProductList from '../composables/getProductlist'
 export default {
   components: { Singleproduct },
   props:['products'],
-  setup(props){
-   let {addToCartProductList,showAddtocart} = getProductList();
-    let addtocart = (p)=>{
-      showAddtocart(p);
-    }
+  setup(){
+    /* show filtered products */
+    let {addToCartProductList,showAddtocart} = getProductList();
+      let addtocart = (p)=>{
+        showAddtocart(p);
+      }
     
     
     return{addtocart}

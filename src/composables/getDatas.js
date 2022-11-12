@@ -10,7 +10,7 @@ let getDatas = ()=>{
         }
         let datas = await res.json();
         products.value = datas;
-        // console.log(products.value)
+        
        } catch (err) {
         error.value = err.message
        }

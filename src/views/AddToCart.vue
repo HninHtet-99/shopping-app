@@ -8,10 +8,11 @@
     </div>
     <div class="" v-else>
         <p class="text-danger text-center" >There's no products.</p>
-        <router-link :to="{name:'Shopping'}">Back to shop</router-link>
+        <router-link :to="{name:'Shopping'}" style="display:flex; text-decoration: none;">
+            <span class="material-symbols-outlined">keyboard_double_arrow_left</span>
+            Back to shop
+        </router-link>
     </div>
-    
-    
   </div>
 </template>
 
@@ -24,6 +25,7 @@ export default {
     BottomNav, CartList },
     setup(){
     let {addToCartProductList,showAddtocart}= getProductlist();
+    
     return {addToCartProductList}
 
     }
@@ -31,9 +33,6 @@ export default {
 </script>
 
 <style>
-/* .cart-list{
-    overflow: scroll;
-} */
 .cart{
     max-width: 700px;
     margin: 10px 30px;
@@ -49,29 +48,5 @@ export default {
     height: 130px;
     border-radius: 10px;
 }
-.delete-icon{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-.delete-icon .icon{
-    position: relative;
-    top: -6px;
-    right: -3px;
-}
-.bottom-nav{
-    position: sticky;
-    bottom: 0;
-    max-width: 700px;
-    margin: 10px 30px;
-    padding: 5px 0px;
-    background-color: aquamarine;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 8px;
-}
+
 </style>
