@@ -6,16 +6,16 @@
 
         <div class="form-group row">
             <div class="col-12 col-md-6">
-                <input type="text" class="form-control" v-model="firstName" placeholder="First name">
+                <input type="text" class="form-control" v-model="firstName" placeholder="First name" required>
             </div>
             <div class="col-12 col-md-6">
-                <input type="text" class="form-control" v-model="secondName" placeholder="Last name">
+                <input type="text" class="form-control" v-model="secondName" placeholder="Last name" required>
             </div>
         </div>
 
         <div class="form-group row">
             <div class="col">
-                <input type="text" class="form-control" v-model="email" placeholder="email">
+                <input type="text" class="form-control" v-model="email" placeholder="email" required>
 
             </div>
         </div>
@@ -23,6 +23,12 @@
         <div class="form-group row">
             <div class="col">
                 <input type="password" class="form-control" v-model="password" placeholder="password">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col">
+                <p class="text-danger" v-if="error">{{error}}</p>
             </div>
         </div>
 
@@ -54,7 +60,7 @@ export default {
             context.emit('enterShoppingRoom')
           }
         }
-        return{firstName,secondName,password,email,signup}
+        return{firstName,secondName,password,email,signup,error}
     }
 
 }

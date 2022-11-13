@@ -12,7 +12,7 @@ let createAccount=async(email,password,firstName,secondName)=>{
         return res;
 
       } catch (err) {
-        console.log(err.message);
+        error.value = err.message;
       }
 }
 
