@@ -9,6 +9,21 @@ body{
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   border-radius: 20px;
 }
+.cart{
+  max-width: 700px;
+  margin: 10px 30px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.24);
+  border-radius: 16px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;    backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.cart img{
+  width: 200px;
+  height: 130px;
+  border-radius: 10px;
+}
 .product-number{
   position: absolute;
   top: 12px;

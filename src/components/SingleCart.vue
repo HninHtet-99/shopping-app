@@ -7,7 +7,7 @@
             <span class="my-2" >{{cart.quantity}}</span>
             <button class="btn btn-outline-dark" @click="decreaseQty(cart.id)">-</button>
         </div>
-        <h6 style="width: 150px" >Price: $ {{cart.price*cart.quantity}}</h6>
+        <h6 style="width: 150px" >Price: $ {{(cart.price*cart.quantity).toFixed(2)}}</h6>
         <span class="material-symbols-outlined delete-icon" @click="cancel(cart.id)">cancel</span>
 
     </div>

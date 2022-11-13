@@ -50,7 +50,6 @@ export default {
         let {error,createAccount} = useSignup();
         let signup=async()=>{
           let res = await createAccount(email.value,password.value,firstName.value,secondName.value)
-          console.log(res.user)
           if (res) {
             context.emit('enterShoppingRoom')
           }
